@@ -1,0 +1,418 @@
+/* Custom CSS by WebByHoward */
+body {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+}
+a {
+  text-decoration: none;
+}
+
+/* FLEXBOX */
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  text-align: center;
+  font-size: 1.6vw;
+  font-family: "Press Start 2P", cursive;
+  padding: 50px 0px 10px 0px;
+}
+
+.col {
+  padding: 20px;
+}
+
+.col2 {
+  padding: 5px;
+}
+
+.col3 {
+  padding: 20px;
+}
+
+#pagecontainer {
+  overflow-x: hidden;
+}
+
+.maincontain {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  justify-content: space-between;
+}
+
+.maincontain_community {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 300px;
+}
+
+.maincontain_social {
+  display: flex;
+  flex-wrap: wrap;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  justify-content: space-between;
+  padding-top: 20px;
+  height: 300px;
+}
+
+.maincontain .col {
+  width: 32%;
+  height: 400px;
+  align-items: stretch;
+}
+
+.maincontain_social .col2 {
+  width: 10%;
+  height: 100px;
+  align-items: stretch;
+}
+
+.maincontain_community .col3 {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 40em) {
+  .maincontain {
+    flex-direction: column;
+    height: 300px;
+    margin: 0 0 10px 0;
+  }
+
+  .maincontain_community {
+    flex-direction: column;
+    height: 100%;
+    margin: 0 0 10px 0;
+  }
+
+  .maincontain_social {
+    display: flex;
+    height: 100%;
+    margin: 0 0 10px 0;
+    padding: 0 0 20px 0;
+  }
+}
+@media only screen and (max-width: 80em) {
+  .maincontain .col {
+    height: auto !important;
+  }
+}
+/* Mobile */
+@media only screen and (max-width: 40em) {
+  .maincontain .col {
+    width: 100%;
+  }
+  .maincontain h3 {
+    font-size: 1.3vh;
+  }
+  .ttv {
+    background-size: 8em !important;
+  }
+  .bsky {
+    background-size: 5em !important;
+  }
+  .ig {
+    background-size: 5em !important;
+  }
+  .sc {
+    background-size: 12em !important;
+  }
+  .fb {
+    background-size: 6em !important;
+  }
+  .yt {
+    background-size: 5em !important;
+  }
+  .ttok {
+    background-size: 5em !important;
+  }
+  .dsc {
+    background-size: 9em !important;
+  }
+  .gaming {
+    background-position: right !important;
+  }
+  .music {
+    background-position: center !important;
+  }
+  .dev {
+    background-position: center !important;
+  }
+  .community {
+    background-size: 70% !important;
+  }
+  .maincontain_social .col2 {
+    width: 50%;
+  }
+  .maincontain_community h3 {
+    font-size: 1.3vh;
+  }
+}
+
+/* Item Stylig */
+.gaming {
+  background: #d836eb;
+  background-image: url("../img/gamebg.gif");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px white solid;
+}
+
+.music {
+  background: #0000ff;
+  background-image: url("../img/musicbg.gif");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px white solid;
+}
+
+.dev {
+  background: #00ff00;
+  background-image: url("../img/devbg.gif");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px white solid;
+}
+
+.community {
+  background: #40f6ff;
+  background-image: url("../img/community.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  border: 2px white solid;
+}
+
+.bsky {
+  background: #fff;
+  background-image: url("../img/bsky.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  border: 2px white solid;
+}
+
+.ig {
+  background: #d62976;
+  background-image: url("../img/ig.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  border: 2px white solid;
+}
+
+.dsc {
+  background: #6b87c8;
+  background-image: url("../img/discord.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  border: 2px white solid;
+}
+
+.fb {
+  background: #009bd1;
+  background-image: url("../img/fb.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px white solid;
+}
+
+.yt {
+  background: #ff4040;
+  background-image: url("../img/yt.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  border: 2px white solid;
+}
+
+.ttv {
+  background: #dfd0ea;
+  background-image: url("../img/ttv.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  border: 2px white solid;
+}
+
+.ttok {
+  background: #c4c4c4;
+  background-image: url("../img/ttok.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-color: #000;
+  border: 2px white solid;
+}
+
+.sc {
+  background-image: url("../img/sc.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 130%;
+  background-color: #d8d3d3;
+  border: 2px white solid;
+}
+
+/* Font Styling */
+
+p {
+  font-size: 0.6vw;
+}
+
+a {
+  color: cyan;
+}
+
+h1 {
+  font-size: 5vw;
+  font-family: "Press Start 2P", cursive;
+  font-weight: lighter;
+  text-align: center;
+  padding: 50px;
+}
+
+h1 .n64txt {
+  font-family: "Press Start 2P", cursive;
+}
+
+h2 {
+  font-size: 2vw;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  padding: 0px 0px 20px 0px;
+}
+
+h3 {
+  font-size: 1.3vw;
+  font-family: "Press Start 2P", cursive;
+  object-fit: cover;
+}
+
+h4 {
+  font-size: 2vw;
+  font-family: "Press Start 2P", cursive;
+  padding-top: 10px;
+  object-fit: cover;
+}
+
+.title {
+  color: white;
+  text-shadow: 1px 1px 4px #000000;
+}
+/* Text Styles */
+.n64txt {
+  font-family: myriad-pro, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.howco-gradient-wipe {
+  text-align: center;
+
+  background: linear-gradient(
+    120deg,
+    #CAF3B4 0%, #76E04A 25%, #38B000 50%, #007913 100%
+  );
+  background-size: 200% auto;
+
+  color: #000;
+  background-clip: text;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 4s linear infinite;
+  animation-play-state: running;
+  animation-timing-function: ease;
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
+/* minecraft splash text effect */
+#splash {
+	text-align: center;
+	color: #eaff00;
+	text-shadow: 1px 1px 0px #000;
+	position: relative;
+	left: 200px;
+	bottom: 50px;
+	animation: splash .25s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+
+
+/* Standard CSS Keyframes */
+@keyframes splash {
+  0% {
+    transform: scale(0.875) rotate(-20deg);
+  }
+  100% {
+    transform: scale(1) rotate(-20deg);
+  }
+}
+
+/* For older WebKit browsers (like older versions of Safari) */
+@-webkit-keyframes splash {
+  0% {
+    transform: scale(0.875) rotate(-20deg);
+  }
+  100% {
+    transform: scale(1) rotate(-20deg);
+  }
+}
+
+
+@media only screen and (max-width: 40em) {
+
+  #splash {
+    position: relative;
+    left: 0;
+    bottom: 20px;
+    animation: splash .25s;
+    animation-direction:alternate-reverse;
+    animation-iteration-count: infinite;
+
+  }
+  h3 {font-size: 0.7em;}
+
+  /* Standard CSS Keyframes */
+  @keyframes splash {
+    0% {
+      transform: scale(0.875) rotate(-5deg);
+    }
+    100% {
+      transform: scale(1) rotate(-5deg);
+    }
+  }
+
+  /* For older WebKit browsers (like older versions of Safari) */
+  @-webkit-keyframes splash {
+    0% {
+      transform: scale(0.875) rotate(-5deg);
+    }
+    100% {
+      transform: scale(1) rotate(-5deg);
+    }
+  }
+
+}
