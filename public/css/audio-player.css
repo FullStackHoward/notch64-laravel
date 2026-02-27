@@ -1,0 +1,149 @@
+#snes-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #d1d1d1;
+    border-top: 4px solid #a0a0a0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 9999;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#player-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+#track-name {
+    font-size: 8px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #a0a0a0;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #6e4fa0;
+    border-radius: 4px;
+    transition: width 0.5s linear;
+}
+
+#player-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+#play-pause-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid #4a3070;
+    background-color: #6e4fa0;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+#play-pause-btn:hover {
+    background-color: #c4408a;
+    border-color: #8a2060;
+}
+
+#player-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+#hear-more {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 7px;
+    color: #c4408a;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #c4408a;
+    padding: 6px 10px;
+    transition: all 0.2s;
+}
+
+#hear-more:hover {
+    background-color: #c4408a;
+    color: white;
+}
+
+#player-left {
+    overflow: hidden;
+}
+
+#track-name {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#snes-buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+#snes-buttons-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.snes-face-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid #4a3070;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: white;
+}
+
+.snes-purple {
+    background-color: #6e4fa0;
+    border-color: #4a3070;
+}
+
+.snes-pink {
+    background-color: #c4408a;
+    border-color: #8a2060;
+}
+
+.snes-face-btn:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}

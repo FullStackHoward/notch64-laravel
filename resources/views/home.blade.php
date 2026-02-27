@@ -17,6 +17,7 @@
           content="Notch64, Notch 64, Big Notch, Big Notch Music, Vicers, Howard.codes, Howard Codes, ItsNotch64, Notch64 Twitter, Notch64 Instagram, Notch64 Youtube, Notch64 TikTok, Notch64 Twitch, Vice Gamers, Pixelwave, #Pixelwave, Pixel Wave"/>
     <title>No, not that Notch.</title>
     <link href="{{ asset('css/ton.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/audio-player.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Open+Sans"/>
     <link rel="stylesheet" href="https://use.typekit.net/fdx4wex.css"/>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZGFZ8DHV1"></script>
@@ -30,6 +31,8 @@
         gtag("config", "G-BZGFZ8DHV1"); </script>
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('js/splshtxt.js') }}"></script>
+    <script src="{{ asset('js/thoughts.js') }}"></script>
+    <script src="{{ asset('js/audio-player.js') }}"></script>
 </head>
 <body>
 <div id="pagecontainer"><h1 class="col"><span class="n64txt">NOTCH<sup
@@ -51,25 +54,11 @@
             class="col2 ttok" href="{{ config('notch64.social.tiktok') }}"></a><a class="col2 dsc"
                                                                                href="{{ config('notch64.social.discord') }}"></a><a
             class="col2 yt" href="{{ config('notch64.social.youtube') }}"></a></div>
-    <audio autoplay hidden loop>
-        <source src="{{ asset('audio/theothernotch.ogg') }}" type="audio/ogg"/>
-        <source src="{{ asset('audio/theothernotch.mp3') }}" type="audio/mpeg"/>
-    </audio>
+    @include('partials.audio-player')
 </div>
-<!-- Gradient divider -->
-<div class="thoughts-divider"></div>
-<!-- Outside #pagecontainer so overflow-x:hidden does not clip the edge-to-edge background -->
-<section class="thoughts-section">
-    <div class="thoughts-speech-wrap">
-        <p class="thoughts-label">Thought Of The Day</p>
-        <a id="thoughts-link" href="https://www.patreon.com/Notch64">
-            <div class="thoughts-bubble">
-                <span id="thoughts-text">Loading...</span>
-            </div>
-        </a>
-    </div>
-    <img class="thoughts-character" src="{{ asset('img/notch64-8bit.png') }}" alt="Notch64" />
-</section>
+
+@include('partials.thoughts')
 <footer>webpage by <a class="howco-gradient-wipe" href="https://howard.codes">fullstackhoward</a></footer>
+
 </body>
 </html>

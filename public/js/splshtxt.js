@@ -15,16 +15,4 @@ $(document).ready(function() {
         }
     });
 
-    // Thoughts section — uses the dedicated thought API (latest active thought)
-    $.ajax({
-        url: '/api/thought/current',
-        method: 'GET',
-        success: function(data) {
-            $('#thoughts-text').text(data.content);
-        },
-        error: function() {
-            $('#thoughts-text').text('...');
-        }
-    });
-
 });
