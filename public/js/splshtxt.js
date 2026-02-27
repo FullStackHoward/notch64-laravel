@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // Header splash text
     $.ajax({
         url: '/api/splash/random',
         method: 'GET',
@@ -12,4 +14,17 @@ $(document).ready(function() {
             $('#splash').text('Loading...');
         }
     });
+
+    // Thoughts section — uses the dedicated thought API (latest active thought)
+    $.ajax({
+        url: '/api/thought/current',
+        method: 'GET',
+        success: function(data) {
+            $('#thoughts-text').text(data.content);
+        },
+        error: function() {
+            $('#thoughts-text').text('...');
+        }
+    });
+
 });

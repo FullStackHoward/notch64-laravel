@@ -55,7 +55,21 @@
         <source src="{{ asset('audio/theothernotch.ogg') }}" type="audio/ogg"/>
         <source src="{{ asset('audio/theothernotch.mp3') }}" type="audio/mpeg"/>
     </audio>
-    <footer>webpage by <a class="howco-gradient-wipe" href="https://howard.codes">fullstackhoward</a></footer>
 </div>
+<!-- Gradient divider -->
+<div class="thoughts-divider"></div>
+<!-- Outside #pagecontainer so overflow-x:hidden does not clip the edge-to-edge background -->
+<section class="thoughts-section">
+    <div class="thoughts-speech-wrap">
+        <p class="thoughts-label">Thought Of The Day</p>
+        <a id="thoughts-link" href="https://www.patreon.com/Notch64">
+            <div class="thoughts-bubble">
+                <span id="thoughts-text">Loading...</span>
+            </div>
+        </a>
+    </div>
+    <img class="thoughts-character" src="{{ asset('img/notch64-8bit.png') }}" alt="Notch64" />
+</section>
+<footer>webpage by <a class="howco-gradient-wipe" href="https://howard.codes">fullstackhoward</a></footer>
 </body>
 </html>
