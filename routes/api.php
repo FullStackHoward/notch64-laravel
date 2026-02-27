@@ -11,3 +11,4 @@ Route::get('/splash/random', [SplashController::class, 'random']);
 Route::get('/thought/current', [ThoughtController::class, 'current']);
 Route::get('/currently-playing', [CurrentlyPlayingController::class, 'index']);
 Route::get('/spotify/top-artists', [SpotifyApiController::class, 'topArtists']);
+Route::get('/spotify/genre-data', [SpotifyApiController::class, 'genreData']);
