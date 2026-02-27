@@ -13,8 +13,13 @@ class SplashController extends Controller
             ->inRandomOrder()
             ->first();
 
+        $fallbackUrl = 'https://www.patreon.com/Notch64';
+        $url = trim((string) ($message?->url ?? ''));
+        $url = $url !== '' ? $url : $fallbackUrl;
+
         return response()->json([
-            'message' => $message ? $message->message : 'Loading...'
+            'message' => $message ? $message->message : 'Loading...',
+            'url'     => $url,
         ]);
     }
 }

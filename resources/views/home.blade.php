@@ -33,7 +33,7 @@
 </head>
 <body>
 <div id="pagecontainer"><h1 class="col"><span class="n64txt">NOTCH<sup
-                style="font-weight: 600; color: #ffac63;">64</sup></span></h1><a href="{{ config('notch64.nav.patreon') }}">
+                style="font-weight: 600; color: #ffac63;">64</sup></span></h1><a href="#">
         <h3
             id="splash">Loading...</h3></a>
     <h2 class="col">The Wonderful Works of Notch64</h2>
