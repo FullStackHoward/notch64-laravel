@@ -33,15 +33,11 @@ a {
 
 .maincontain {
   display: flex;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   justify-content: space-between;
 }
 
 .maincontain_community {
   display: flex;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   padding-top: 20px;
   padding-bottom: 20px;
   height: 300px;
@@ -50,8 +46,6 @@ a {
 .maincontain_social {
   display: flex;
   flex-wrap: wrap;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   justify-content: space-between;
   padding-top: 20px;
   height: 300px;
