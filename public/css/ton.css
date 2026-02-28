@@ -15,16 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-footer {
-  width: 100%;
-  bottom: 0;
-  position: relative;
-  text-align: center;
-  font-size: 1.6vw;
-  font-family: "Press Start 2P", cursive;
-  padding: 50px 0px 10px 0px;
-}
-
 .col {
   padding: 20px;
 }
