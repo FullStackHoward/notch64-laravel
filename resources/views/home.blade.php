@@ -19,7 +19,7 @@
     <title>Notch64 | Retro Gamer, Music Maker & Community Builder</title>
     <meta name="description" content="Notch64 is a retro gamer, music producer, streamer, and community builder. Explore gaming, original music, live streams, and join the Vicers community."/>
     <meta name="author" content="Notch64"/>
-    <meta name="keywords" content="Notch64, ItsNotch64, retro gaming, game modding, music producer, Big Notch Music, Twitch streamer, Vice Gamers, Vicers, pixel art, emulation, community"/>
+    <meta name="keywords" content="Notch64, ItsNotch64, retro gaming, game modding, music producer, Notch64 Music, Twitch streamer, Vice Gamers, Vicers, pixelwave, emulation, community"/>
     <meta name="robots" content="index, follow"/>
 
     {{-- Open Graph (Facebook, Discord, LinkedIn) --}}
