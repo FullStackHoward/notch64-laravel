@@ -130,7 +130,7 @@
     }
 
     #twitch-section .on-air-text.offline {
-        color: #555555;
+        color: #aaaaaa;
     }
 
     #twitch-section .stream-title {
@@ -162,6 +162,10 @@
 
         #twitch-section .twitch-embed iframe {
             height: 280px;
+        }
+
+        #twitch-section .on-air-text.offline {
+            color: #555555;
         }
     }
 </style>
