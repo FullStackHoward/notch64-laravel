@@ -10,10 +10,10 @@
         <button id="play-pause-btn" class="snes-btn-purple">▶</button>
         <div id="snes-buttons">
             <div id="snes-buttons-row">
-                <button id="btn-y" class="snes-face-btn snes-purple">Y</button>
-                <button id="btn-x" class="snes-face-btn snes-purple">X</button>
-                <button id="btn-b" class="snes-face-btn snes-pink">B</button>
-                <button id="btn-a" class="snes-face-btn snes-pink">A</button>
+                <button id="btn-y" class="snes-face-btn snes-purple">◀◀</button>
+                <button id="btn-x" class="snes-face-btn snes-purple">▶▶</button>
+                <button id="btn-b" class="snes-face-btn snes-pink">☰</button>
+                <button id="btn-a" class="snes-face-btn snes-pink">▲</button>
             </div>
         </div>
     </div>

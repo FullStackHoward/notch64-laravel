@@ -1,4 +1,8 @@
 /* Custom CSS by WebByHoward */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #333;
   color: #fff;

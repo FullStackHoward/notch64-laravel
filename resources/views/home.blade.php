@@ -33,6 +33,7 @@
 </head>
 <body>
 
+@include('partials.nav-overlay')
 @include('partials.links')
 @include('partials.thoughts')
 @include('partials.spotify')

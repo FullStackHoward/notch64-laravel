@@ -85,22 +85,26 @@ $(document).ready(function() {
     }
 
 // Y button = previous track
-    document.getElementById('btn-y').addEventListener('click', function() {
+    $(document).on('click', '#btn-y', function() {
         prevTrack();
     });
 
-// B button = next track
-    document.getElementById('btn-b').addEventListener('click', function() {
+// X button = next track
+    $(document).on('click', '#btn-x', function() {
         nextTrack();
     });
 
-// X and A buttons - placeholder for future use
-    document.getElementById('btn-x').addEventListener('click', function() {
-        // future feature
+// B button = open menu overlay
+    $(document).on('click', '#btn-b', function() {
+        if (typeof openMenu === 'function') {
+            openMenu();
+        }
     });
 
-    document.getElementById('btn-a').addEventListener('click', function() {
-        // future feature
+// A button = scroll to top
+    $(document).on('click', '#btn-a', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        $('html, body').stop().animate({ scrollTop: 0 }, 400);
     });
 
     // Scrolling track name marquee
