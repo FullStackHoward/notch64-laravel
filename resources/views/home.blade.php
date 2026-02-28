@@ -60,6 +60,8 @@
 @include('partials.thoughts')
 @include('partials.spotify')
 @include('partials.spotify-genres')
+@include('partials.gaming')
+@include('partials.platform-stats')
 <footer>webpage by <a class="howco-gradient-wipe" href="https://howard.codes">fullstackhoward</a></footer>
 
 </body>
