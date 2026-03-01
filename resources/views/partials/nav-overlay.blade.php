@@ -1,4 +1,5 @@
 <style>
+@verbatim
     /* ── Fixed MENU button ───────────────────────────────── */
     #nav-menu-btn {
         position: fixed;
@@ -113,6 +114,7 @@
     .nav-overlay-link--connect:hover {
         color: #6e4fa0;
     }
+@endverbatim
 </style>
 
 <!-- Fixed MENU button -->

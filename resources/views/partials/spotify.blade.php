@@ -1,4 +1,5 @@
 <style>
+@verbatim
     #spotify-section {
         background-color: #000000;
         padding: 60px 20px;
@@ -73,6 +74,7 @@
         text-overflow: ellipsis;
         line-height: 1.5;
     }
+@endverbatim
 </style>
 
 <!-- Spotify Top Artists Section -->
