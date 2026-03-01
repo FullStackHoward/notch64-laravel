@@ -41,25 +41,33 @@
     <meta name="twitter:image" content="{{ asset('img/og-image.png') }}"/>
 
     {{-- Structured Data --}}
+    @verbatim
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Notch64",
-        "alternateName": "ItsNotch64",
-        "url": "https://notch64.com",
-        "sameAs": [
-            "https://www.twitch.tv/itsnotch64",
-            "https://www.youtube.com/@notch64",
-            "https://www.instagram.com/itsnotch64",
-            "https://www.tiktok.com/@itsnotch64",
-            "https://bsky.app/profile/notch64.bsky.social",
-            "https://www.bignotch.com"
-        ],
-        "description": "Retro gamer, music producer, streamer, and community builder.",
-        "knowsAbout": ["Retro Gaming", "Game Modding", "Music Production", "Live Streaming", "Community Building"]
-    }
+          "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Notch64",
+  "alternateName": "ItsNotch64",
+  "url": "https://notch64.com",
+  "sameAs": [
+    "https://www.twitch.tv/itsnotch64",
+    "https://www.youtube.com/@notch64",
+    "https://www.instagram.com/itsnotch64",
+    "https://www.tiktok.com/@itsnotch64",
+    "https://bsky.app/profile/notch64.bsky.social",
+    "https://www.bignotch.com"
+  ],
+  "description": "Retro gamer, music producer, streamer, and community builder.",
+  "knowsAbout": [
+    "Retro Gaming",
+    "Game Modding",
+    "Music Production",
+    "Live Streaming",
+    "Community Building"
+  ]
+}
     </script>
+    @endverbatim
 
     {{-- Styles --}}
     <link href="{{ asset('css/ton.css') }}" rel="stylesheet"/>
