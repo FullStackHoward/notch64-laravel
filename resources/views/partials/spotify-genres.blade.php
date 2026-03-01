@@ -1,4 +1,5 @@
 <style>
+@verbatim
     #spotify-genres-section {
         background-color: #000000;
         padding: 60px 20px;
@@ -90,6 +91,7 @@
             max-width: 100%;
         }
     }
+@endverbatim
 </style>
 
 <!-- Spotify Genre Radar + Tag Cloud Section -->

@@ -1,4 +1,5 @@
 <style>
+@verbatim
     #site-footer {
         width: calc(100% + 40px);
         margin-left: -20px;
@@ -49,6 +50,7 @@
             font-size: 3vw;
         }
     }
+@endverbatim
 </style>
 
 <footer id="site-footer">

@@ -1,4 +1,5 @@
 <style>
+@verbatim
     #twitch-section {
         background: linear-gradient(to bottom, #333333, #d1d1d1);
         padding: 70px 20px;
@@ -168,6 +169,7 @@
             color: #555555;
         }
     }
+@endverbatim
 </style>
 
 <!-- Twitch Section -->
@@ -194,7 +196,7 @@
             <p class="stream-title" id="stream-title"></p>
             <div class="twitch-embed">
                 <iframe
-                    src="https://player.twitch.tv/?channel=itsnotch64&parent=notch64.test"
+                    src="https://player.twitch.tv/?channel=itsnotch64&parent=notch64.com"
                     allowfullscreen>
                 </iframe>
             </div>
