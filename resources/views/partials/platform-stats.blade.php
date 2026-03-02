@@ -1,5 +1,5 @@
-<style>
 @verbatim
+<style>
     #platform-stats-section {
         background-color: #333333;
         padding: 70px 20px;
@@ -82,8 +82,8 @@
             font-size: 26px;
         }
     }
-@endverbatim
 </style>
+@endverbatim
 
 <!-- Platform Stats Section -->
 <section id="platform-stats-section">

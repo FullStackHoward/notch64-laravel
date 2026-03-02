@@ -1,5 +1,5 @@
-<style>
 @verbatim
+<style>
     #site-footer {
         width: calc(100% + 40px);
         margin-left: -20px;
@@ -50,8 +50,8 @@
             font-size: 3vw;
         }
     }
-@endverbatim
 </style>
+@endverbatim
 
 <footer id="site-footer">
     <p class="footer-text">webpage by <a class="howco-gradient-wipe" href="https://howard.codes">fullstackhoward</a></p>

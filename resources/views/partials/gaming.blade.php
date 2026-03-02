@@ -1,5 +1,5 @@
-<style>
 @verbatim
+<style>
     #gaming-section {
         background: linear-gradient(to bottom, #000000, #333333);
         padding: 70px 20px;
@@ -225,8 +225,8 @@
             width: 140px;
         }
     }
-@endverbatim
 </style>
+@endverbatim
 
 <!-- Gaming Section -->
 <section id="gaming-section">

@@ -1,5 +1,5 @@
-<style>
 @verbatim
+<style>
     #twitch-section {
         background: linear-gradient(to bottom, #333333, #d1d1d1);
         padding: 70px 20px;
@@ -169,8 +169,8 @@
             color: #555555;
         }
     }
-@endverbatim
 </style>
+@endverbatim
 
 <!-- Twitch Section -->
 <section id="twitch-section">
