@@ -7,6 +7,7 @@
         margin-left: -20px;
         margin-right: -20px;
         width: calc(100% + 40px);
+        overflow-x: hidden;
     }
 
     #platform-stats-section .ps-heading {
@@ -74,12 +75,27 @@
             font-size: 0.65rem;
         }
 
+        #platform-stats-section .ps-grid {
+            gap: 36px 24px;
+        }
+
         #platform-stats-section .ps-stat-item {
-            width: 130px;
+            width: calc(50% - 24px);
+            max-width: 130px;
+        }
+
+        #platform-stats-section .ps-platform-name {
+            font-size: 11px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        #platform-stats-section .ps-stat-label {
+            font-size: 14px;
         }
 
         #platform-stats-section .ps-stat-value {
-            font-size: 26px;
+            font-size: 22px;
         }
     }
 </style>
