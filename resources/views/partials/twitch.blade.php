@@ -179,7 +179,7 @@
         <!-- Left: Info + Schedule -->
         <div class="twitch-col">
             <h2 class="twitch-heading">Yes, I live stream sometimes...</h2>
-            <p class="twitch-desc">I stream retro games, game mods, and compose music. Join the community and watch live as I play my favorite classics, tinker with game mods, and make music!</p>
+            <p class="twitch-desc">I stream retro games, game mods, and compose music. Join the community and watch live as we talk shop, make friends, and have fun!</p>
             <hr class="twitch-divider" />
             <h3 class="schedule-heading">Upcoming Streams</h3>
             <div id="twitch-schedule">
