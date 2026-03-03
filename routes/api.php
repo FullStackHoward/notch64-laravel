@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\SpotifyApiController;
 use App\Http\Controllers\Api\SteamController;
 use App\Http\Controllers\Api\PlatformStatsController;
 use App\Http\Controllers\Api\TwitchController;
+use App\Http\Controllers\Api\SongController;
 
 
 Route::get('/splash/random', [SplashController::class, 'random']);
@@ -19,4 +20,5 @@ Route::get('/steam/recently-played', [SteamController::class, 'recentlyPlayed'])
 Route::get('/platform-stats', [PlatformStatsController::class, 'index']);
 Route::get('/twitch/live-status', [TwitchController::class, 'liveStatus']);
 Route::get('/twitch/schedule', [TwitchController::class, 'schedule']);
+Route::get('/songs', [SongController::class, 'index']);
 

@@ -1,15 +1,6 @@
 $(document).ready(function() {
 
-    const playlist = [
-        {
-            title: 'The Other Notch',
-            src: [
-                audioBaseUrl + 'audio/theothernotch.ogg',
-                audioBaseUrl + 'audio/theothernotch.mp3'
-            ]
-        }
-    ];
-
+    let playlist = [];
     let currentTrack = 0;
     let isPlaying = false;
     const audio = document.getElementById('snes-audio');
@@ -19,7 +10,8 @@ $(document).ready(function() {
 
     // Load a track by index
     function loadTrack(index) {
-        audio.src = playlist[index].src[0];
+        if (playlist.length === 0) return;
+        audio.src = playlist[index].src;
         trackName.textContent = playlist[index].title;
         audio.load();
     }
@@ -119,15 +111,28 @@ $(document).ready(function() {
     }
     scrollTrackName();
 
-    // Load and autoplay the first track
-    loadTrack(currentTrack);
-    audio.play().then(function() {
-        isPlaying = true;
-        playPauseBtn.textContent = '⏸';
-    }).catch(function() {
-        // Browser blocked autoplay, wait for user to click play
-        isPlaying = false;
-        playPauseBtn.textContent = '▶';
-    });
+    // Fetch playlist from API and autoplay
+    fetch('/api/songs')
+        .then(function(response) { return response.json(); })
+        .then(function(songs) {
+            if (songs.length === 0) {
+                trackName.textContent = 'No songs available';
+                return;
+            }
+            playlist = songs;
+            currentTrack = 0;
+            loadTrack(currentTrack);
+            audio.play().then(function() {
+                isPlaying = true;
+                playPauseBtn.textContent = '⏸';
+            }).catch(function() {
+                // Browser blocked autoplay, wait for user to click play
+                isPlaying = false;
+                playPauseBtn.textContent = '▶';
+            });
+        })
+        .catch(function() {
+            trackName.textContent = 'Failed to load playlist';
+        });
 
 });

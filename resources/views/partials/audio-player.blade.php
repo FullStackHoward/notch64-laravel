@@ -1,6 +1,6 @@
 <div id="snes-player">
     <div id="player-left">
-        <span id="track-name">Notch64 - The Other Notch</span>
+        <span id="track-name">Loading...</span>
         <div id="progress-bar-container">
             <div id="progress-bar"></div>
         </div>
@@ -24,11 +24,5 @@
         </a>
     </div>
 
-    <audio id="snes-audio">
-        <source src="{{ asset('audio/theothernotch.ogg') }}" type="audio/ogg"/>
-        <source src="{{ asset('audio/theothernotch.mp3') }}" type="audio/mpeg"/>
-    </audio>
-    <script>
-        const audioBaseUrl = "{{ asset('/') }}";
-    </script>
+    <audio id="snes-audio"></audio>
 </div>
