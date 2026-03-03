@@ -15,7 +15,7 @@ class SongController extends Controller
             ->map(function ($song) {
                 return [
                     'title'  => $song->artist ? $song->artist . ' - ' . $song->title : $song->title,
-                    'src'    => asset('storage/' . $song->file_path),
+                    'src'    => '/storage/' . $song->file_path,
                 ];
             });
 

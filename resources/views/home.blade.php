@@ -88,7 +88,7 @@
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('js/splshtxt.js') }}"></script>
     <script src="{{ asset('js/thoughts.js') }}"></script>
-    <script src="{{ asset('js/audio-player.js') }}"></script>
+    <script src="{{ asset('js/audio-player.js') }}?v={{ filemtime(public_path('js/audio-player.js')) }}"></script>
 </head>
 <body>
 
