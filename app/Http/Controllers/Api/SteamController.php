@@ -25,11 +25,18 @@ class SteamController extends Controller
 
         $games = $response->json()['response']['games'] ?? [];
 
-        $formatted = collect($games)->map(function ($game) {
+        // Appids whose store page requires an actual Steam login — those cards get no link.
+        $loginWalled = config('notch64.steam.login_walled_appids', []);
+
+        $formatted = collect($games)->map(function ($game) use ($loginWalled) {
+            $appid = $game['appid'];
+
             return [
                 'title'      => $game['name'],
-                'cover_url'  => 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $game['appid'] . '/header.jpg',
-                'steam_url'  => 'https://store.steampowered.com/app/' . $game['appid'],
+                'cover_url'  => 'https://cdn.cloudflare.steamstatic.com/steam/apps/' . $appid . '/header.jpg',
+                'steam_url'  => in_array($appid, $loginWalled)
+                    ? null
+                    : 'https://store.steampowered.com/app/' . $appid . '/',
                 'playtime'   => round($game['playtime_2weeks'] / 60, 1) . ' hrs last 2 weeks',
             ];
         });

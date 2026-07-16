@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Collection;
 
 class CurrentlyPlayingResource extends Resource
 {
@@ -37,7 +38,9 @@ class CurrentlyPlayingResource extends Resource
                         'Nintendo'    => 'Nintendo',
                         'Apple Arcade'=> 'Apple Arcade',
                         'Android'     => 'Android',
-                        'Other'       => 'Other',
+                        'PC'          => 'PC',
+                        'Retro'       => 'Retro',
+                        'VR'          => 'VR',
                     ]),
                 Forms\Components\TextInput::make('cover_url')
                     ->label('Cover Image URL')
@@ -71,6 +74,12 @@ class CurrentlyPlayingResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\BulkAction::make('deactivate')
+                        ->label('Set inactive')
+                        ->icon('heroicon-o-x-circle')
+                        ->requiresConfirmation()
+                        ->action(fn (Collection $records) => $records->each->update(['active' => false]))
+                        ->deselectRecordsAfterCompletion(),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);

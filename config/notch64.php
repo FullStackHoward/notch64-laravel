@@ -27,4 +27,19 @@ return [
         'redirect_uri'  => env('SPOTIFY_REDIRECT_URI'),
     ],
 
+    'steam' => [
+        /*
+         * Steam appids whose store page sits behind a REAL login wall (not just an
+         * age/birthdate gate — those are still publicly viewable and should NOT be
+         * listed here). Steam cards for these games render without an outbound link.
+         *
+         * This is a manual, per-game list on purpose. When a new game appears in the
+         * currently-playing feed, open its store page in a logged-out/private window;
+         * only if it demands a Steam sign-in, add its appid below.
+         */
+        'login_walled_appids' => [
+            // e.g. 123456,
+        ],
+    ],
+
 ];

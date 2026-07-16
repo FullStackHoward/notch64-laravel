@@ -129,10 +129,10 @@
         <!-- Navigate group -->
         <p class="nav-overlay-group-heading">Navigate</p>
         <button class="nav-overlay-link nav-overlay-link--nav" onclick="navTo(0)">Home</button>
-        <button class="nav-overlay-link nav-overlay-link--nav" onclick="navTo('#spotify-section')">My Favorite Artists</button>
+        <button class="nav-overlay-link nav-overlay-link--nav" onclick="navTo('#spotify-section')">What I'm Listening To</button>
         <button class="nav-overlay-link nav-overlay-link--nav" onclick="navTo('#gaming-section')">What I'm Playing</button>
         <button class="nav-overlay-link nav-overlay-link--nav" onclick="navTo('#twitch-section')">Twitch</button>
-        <button class="nav-overlay-link nav-overlay-link--nav" onclick="navTo('#pagecontainer')">Join My Community ↗</button>
+        <a class="nav-overlay-link nav-overlay-link--nav" href="{{ config('notch64.nav.community') }}" target="_blank" rel="noopener noreferrer">Join My Community ↗</a>
 
         <hr class="nav-overlay-divider" />
 

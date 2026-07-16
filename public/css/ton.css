@@ -379,9 +379,29 @@ h4 {
   margin-right: -20px;
   width: calc(100% + 40px);
   height: 50px;
-  background: linear-gradient(to bottom, #333333 0%, #333333 15%, #0064B9 100%);
+  background: #0064B9;
   margin-bottom: -2px;
   position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+/*
+ * The visible gray->blue fade is rendered by an overlay that extends UPWARD
+ * (~140px) into the social-icon area above. That area shares the page's
+ * #333333 background, so the overhang is invisible while the fade blends over
+ * a much longer distance than the 50px divider allows. The divider stays 50px
+ * in flow, so nothing below it shifts down.
+ */
+.thoughts-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, #333333 0%, #0064B9 100%);
+  pointer-events: none;
   z-index: 1;
 }
 

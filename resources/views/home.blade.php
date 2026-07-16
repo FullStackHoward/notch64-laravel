@@ -100,6 +100,7 @@
 @include('partials.gaming')
 @include('partials.platform-stats')
 @include('partials.twitch')
+@include('partials.patreon')
 @include('partials.footer')
 
 </body>
