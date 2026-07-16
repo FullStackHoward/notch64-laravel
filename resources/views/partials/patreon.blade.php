@@ -4,7 +4,7 @@
         /* patreon-lite-bg.jpg sits behind the whole section (header + all four columns).
            A dark overlay keeps the header text legible over the artwork. */
         background:
-            linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+            linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
             url('/img/patreon-lite-bg.jpg') center center / cover no-repeat;
         padding: 60px 20px;
         box-sizing: border-box;
