@@ -29,6 +29,15 @@ return [
 
     'steam' => [
         /*
+         * Read Steam credentials through config (NOT env() directly in the controller):
+         * once production runs `php artisan config:cache`, env() returns null outside
+         * config files, which silently blanks the Steam row. Config files are the one
+         * place env() is safe to call — this mirrors how the 'spotify' block works.
+         */
+        'api_key'  => env('STEAM_API_KEY'),
+        'steam_id' => env('STEAM_ID'),
+
+        /*
          * Steam appids whose store page sits behind a REAL login wall (not just an
          * age/birthdate gate — those are still publicly viewable and should NOT be
          * listed here). Steam cards for these games render without an outbound link.
@@ -40,6 +49,12 @@ return [
         'login_walled_appids' => [
             // e.g. 123456,
         ],
+    ],
+
+    'twitch' => [
+        // Read through config for the same config:cache reason as the 'steam' block.
+        'client_id'     => env('TWITCH_CLIENT_ID'),
+        'client_secret' => env('TWITCH_CLIENT_SECRET'),
     ],
 
 ];

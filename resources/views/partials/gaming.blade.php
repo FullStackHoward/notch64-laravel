@@ -280,7 +280,10 @@
             var $row = $('#steam-row');
             $row.empty();
 
-            if (!games || games.length === 0) return;
+            if (!Array.isArray(games) || games.length === 0) {
+                console.warn('Steam recently-played feed returned no games (private profile, no recent playtime, or API error). See server log for details.');
+                return;
+            }
 
             var limit = Math.min(games.length, 5);
             for (var i = 0; i < limit; i++) {
@@ -330,6 +333,8 @@
 
                 $row.append($card);
             }
+        }).fail(function (jqxhr) {
+            console.error('Steam recently-played feed failed to load:', jqxhr.status, jqxhr.statusText);
         });
 
         /* ── CMS Library + Filter ──────────────────────────── */

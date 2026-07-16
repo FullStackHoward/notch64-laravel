@@ -15,8 +15,8 @@ class TwitchController extends Controller
     private function getAccessToken(): ?string
     {
         $response = Http::post('https://id.twitch.tv/oauth2/token', [
-            'client_id'     => env('TWITCH_CLIENT_ID'),
-            'client_secret' => env('TWITCH_CLIENT_SECRET'),
+            'client_id'     => config('notch64.twitch.client_id'),
+            'client_secret' => config('notch64.twitch.client_secret'),
             'grant_type'    => 'client_credentials',
         ]);
 
@@ -43,7 +43,7 @@ class TwitchController extends Controller
         }
 
         $response = Http::withHeaders([
-            'Client-ID'     => env('TWITCH_CLIENT_ID'),
+            'Client-ID'     => config('notch64.twitch.client_id'),
             'Authorization' => 'Bearer ' . $token,
         ])->get('https://api.twitch.tv/helix/streams', [
             'user_login' => 'itsnotch64',
