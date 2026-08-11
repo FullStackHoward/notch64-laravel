@@ -309,8 +309,9 @@
                         alt: game.title || '',
                         'class': 'steam-card__cover'
                     });
-                    // Broken/404 cover (e.g. EA-distributed titles with no Steam header.jpg)
-                    // falls back to the same placeholder used when there's no cover at all.
+                    // cover_url comes straight from Steam's storefront API, so a 404 here is
+                    // rare — but a stale cached URL or a CDN hiccup still falls back to the
+                    // same placeholder used when there's no cover at all.
                     $steamImg.on('error', function () {
                         $(this).replaceWith($('<div></div>', { 'class': 'steam-card__placeholder' }).text('🎮'));
                     });
