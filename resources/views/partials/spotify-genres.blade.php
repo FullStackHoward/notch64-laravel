@@ -122,6 +122,11 @@
     $(document).ready(function () {
         $.getJSON('/api/spotify/genre-data', function (data) {
 
+            if (!data || (!data.radar && !data.tagcloud)) {
+                console.warn('Spotify genre feed returned no data. See server log for details.');
+                return;
+            }
+
             /* ── Radar Chart ─────────────────────────────────────── */
             var radarData = data.radar || {};
             var radarLabels = Object.keys(radarData);
@@ -209,6 +214,14 @@
                 $cloud.append($tag);
             });
 
+        }).fail(function (jqxhr) {
+            var body = jqxhr.responseJSON || {};
+            if (body.needs_reauth) {
+                console.error('Spotify is disconnected \u2014 the stored refresh token is no longer valid. '
+                    + 'Reconnect by visiting /spotify/auth in a browser.');
+            } else {
+                console.error('Spotify genre feed failed to load:', jqxhr.status, jqxhr.statusText);
+            }
         });
     });
 </script>

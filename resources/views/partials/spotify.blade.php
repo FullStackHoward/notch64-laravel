@@ -92,6 +92,7 @@
             $row.empty();
 
             if (!artists || artists.length === 0) {
+                console.warn('Spotify top-artists feed returned no artists. See server log for details.');
                 return;
             }
 
@@ -124,6 +125,14 @@
                 $card.append($media).append($name);
                 $row.append($card);
             });
+        }).fail(function (jqxhr) {
+            var body = jqxhr.responseJSON || {};
+            if (body.needs_reauth) {
+                console.error('Spotify is disconnected \u2014 the stored refresh token is no longer valid. '
+                    + 'Reconnect by visiting /spotify/auth in a browser.');
+            } else {
+                console.error('Spotify top-artists feed failed to load:', jqxhr.status, jqxhr.statusText);
+            }
         });
     });
 </script>

@@ -41,6 +41,7 @@ class CurrentlyPlayingResource extends Resource
                         'PC'          => 'PC',
                         'Retro'       => 'Retro',
                         'VR'          => 'VR',
+                        'Homebrew'    => 'Homebrew',
                     ]),
                 Forms\Components\TextInput::make('cover_url')
                     ->label('Cover Image URL')

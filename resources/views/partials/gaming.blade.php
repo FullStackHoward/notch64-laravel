@@ -123,6 +123,7 @@
     #gaming-section .filter-btn[data-platform="PC"]           { border-color: #F2711C; }
     #gaming-section .filter-btn[data-platform="Retro"]        { border-color: #c4408a; }
     #gaming-section .filter-btn[data-platform="VR"]           { border-color: #17C3B2; }
+    #gaming-section .filter-btn[data-platform="Homebrew"]     { border-color: #6300F6; }
 
     #gaming-section .filter-btn.active[data-platform="All"]          { background-color: #6e4fa0; }
     #gaming-section .filter-btn.active[data-platform="PlayStation"]  { background-color: #3A88E4; }
@@ -134,6 +135,7 @@
     #gaming-section .filter-btn.active[data-platform="PC"]           { background-color: #F2711C; }
     #gaming-section .filter-btn.active[data-platform="Retro"]        { background-color: #c4408a; }
     #gaming-section .filter-btn.active[data-platform="VR"]           { background-color: #17C3B2; color: #000000; }
+    #gaming-section .filter-btn.active[data-platform="Homebrew"]     { background-color: #6300F6; }
 
     /* ── CMS game card grid ──────────────────────────────────── */
     #gaming-section .library-grid {
@@ -168,6 +170,7 @@
     #gaming-section .game-card[data-platform="PC"]          { border-color: #F2711C; }
     #gaming-section .game-card[data-platform="Retro"]       { border-color: #c4408a; }
     #gaming-section .game-card[data-platform="VR"]          { border-color: #17C3B2; }
+    #gaming-section .game-card[data-platform="Homebrew"]    { border-color: #6300F6; }
 
     #gaming-section .game-card__cover {
         width: 100%;
@@ -221,6 +224,7 @@
     #gaming-section .game-card__badge[data-platform="PC"]          { background-color: #F2711C; color: #ffffff; }
     #gaming-section .game-card__badge[data-platform="Retro"]       { background-color: #c4408a; color: #ffffff; }
     #gaming-section .game-card__badge[data-platform="VR"]          { background-color: #17C3B2; }
+    #gaming-section .game-card__badge[data-platform="Homebrew"]    { background-color: #6300F6; color: #ffffff; }
 
     /* ── Responsive ──────────────────────────────────────────── */
     @media only screen and (max-width: 600px) {
@@ -243,13 +247,13 @@
 <section id="gaming-section">
 
     <!-- Steam Recently Played -->
-    <h2 class="gaming-heading">What I'm currently playing...</h2>
+    <h2 class="gaming-heading">Games I'm currently playing...</h2>
     <div class="steam-row" id="steam-row">
         {{-- Steam cards injected by JS --}}
     </div>
 
     <!-- CMS Full Library -->
-    <h2 class="gaming-heading">Here are other games I play sometimes...</h2>
+    <h2 class="gaming-heading">Here are some other games in my rotation...</h2>
     <div class="filter-row" id="filter-row">
         {{-- Filter buttons injected by JS --}}
     </div>
@@ -272,7 +276,8 @@
             'Android':       '#FFC700',
             'PC':            '#F2711C',
             'Retro':         '#c4408a',
-            'VR':            '#17C3B2'
+            'VR':            '#17C3B2',
+            'Homebrew':      '#6300F6'
         };
 
         /* ── Steam Recently Played ─────────────────────────── */
