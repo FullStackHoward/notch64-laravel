@@ -70,7 +70,11 @@
     @endverbatim
 
     {{-- Styles --}}
-    <link href="{{ asset('css/ton.css') }}" rel="stylesheet"/>
+    {{-- Versioned: ton.css is served with a 30-day max-age, and the tile markup
+         and its CSS must upgrade together. Without this, a returning visitor
+         pairs new HTML with a month-old stylesheet and the tiles lose their
+         backgrounds entirely. --}}
+    <link href="{{ asset('css/ton.css') }}?v={{ filemtime(public_path('css/ton.css')) }}" rel="stylesheet"/>
     <link href="{{ asset('css/audio-player.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Open+Sans"/>
     <link rel="stylesheet" href="https://use.typekit.net/fdx4wex.css"/>
