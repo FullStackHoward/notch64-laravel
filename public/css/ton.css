@@ -541,6 +541,26 @@ h4 {
 
 /* ---- Thoughts: mobile ---- */
 @media only screen and (max-width: 40em) {
+  /*
+   * The 140px upward gradient overhang only works when there is empty #333333
+   * space above the divider to fade through. On mobile the social icons wrap
+   * to 50% width (four rows tall), so that space is filled and the overhang
+   * paints straight over the bottom icons. Keep the fade inside the divider
+   * itself here: the icons and the thoughts section then butt up against each
+   * other with no overlap and no desktop-style gap between them.
+   */
+  .maincontain_social {
+    padding-bottom: 0;
+  }
+
+  .thoughts-divider {
+    height: 32px;
+  }
+
+  .thoughts-divider::before {
+    height: 100%;
+  }
+
   .thoughts-section {
     --char-h: clamp(340px, 66vw, 460px);
     padding: 16px;

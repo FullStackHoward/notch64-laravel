@@ -20,11 +20,14 @@
     }
 
     /* ── Steam Recently Played ───────────────────────────────── */
+    /* align-items: stretch (the default) makes every card in a row grow to the
+       height of the tallest one, so a two-line title no longer leaves the cards
+       beside it short. */
     #gaming-section .steam-row {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 20px;
         margin-bottom: 72px;
     }
@@ -52,14 +55,19 @@
 
     #gaming-section .steam-card__cover {
         width: 100%;
-        height: auto;
+        /* Steam header_image is 460x215; pin the ratio so a stray odd-sized
+           image can't make one card taller than the rest. */
+        aspect-ratio: 460 / 215;
+        object-fit: cover;
+        object-position: center top;
+        background-color: #000000;
         display: block;
         margin-bottom: 10px;
     }
 
     #gaming-section .steam-card__placeholder {
         width: 100%;
-        height: 94px;
+        aspect-ratio: 460 / 215;
         background-color: #000000;
         display: flex;
         align-items: center;
@@ -77,6 +85,9 @@
         line-height: 1.6;
         margin: 0 0 6px 0;
         width: 100%;
+        /* 2 lines x 1.6 line-height — reserved whether the title wraps or not,
+           so the playtime lines up across cards. */
+        min-height: 3.2em;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -89,7 +100,8 @@
         font-size: 6px;
         text-align: center;
         line-height: 1.6;
-        margin: 0;
+        /* Sits on the floor of the stretched card. */
+        margin: auto 0 0 0;
     }
 
     /* ── Platform filter buttons ─────────────────────────────── */
@@ -172,16 +184,24 @@
     #gaming-section .game-card[data-platform="VR"]          { border-color: #17C3B2; }
     #gaming-section .game-card[data-platform="Homebrew"]    { border-color: #6300F6; }
 
+    /* Covers come from all over the web at wildly different sizes and ratios.
+       A fixed 3:4 box plus object-fit: cover scales each one until it fills the
+       box and crops the overflow; object-position anchors that crop to the top
+       centre, so a short/wide image keeps its key art instead of its bottom
+       edge. Every cover therefore renders at identical dimensions. */
     #gaming-section .game-card__cover {
         width: 100%;
-        height: auto;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center top;
+        background-color: #000000;
         display: block;
         margin-bottom: 8px;
     }
 
     #gaming-section .game-card__placeholder {
         width: 100%;
-        height: 80px;
+        aspect-ratio: 3 / 4;
         background-color: #000000;
         display: flex;
         align-items: center;
@@ -199,6 +219,8 @@
         line-height: 1.6;
         margin: 0 0 8px 0;
         width: 100%;
+        /* 3 lines x 1.6 line-height, reserved so the badges line up. */
+        min-height: 4.8em;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 3;
