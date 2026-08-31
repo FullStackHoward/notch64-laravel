@@ -1,24 +1,54 @@
 <div id="pagecontainer">
     <h1 class="col"><span class="n64txt">NOTCH<sup style="font-weight: 600; color: #ffac63;">64</sup></span></h1>
     <a href="#"><h3 id="splash">Loading...</h3></a>
-    <h2 class="col">The Wonderful Works of Notch64</h2>
-    <div class="maincontain">
-        <a class="col gaming" href="{{ config('notch64.nav.gaming') }}"><h3 class="title">GAMING</h3></a>
-        <a class="col music" href="{{ config('notch64.nav.music') }}"><h3 class="title">MUSIC</h3></a>
-        <a class="col dev" href="{{ config('notch64.nav.creative') }}"><h3 class="title">CREATIVE</h3></a>
-    </div>
-    <div class="maincontain_community">
-        <a class="col3 community" href="{{ config('notch64.nav.community') }}"><h3 class="title">COMMUNITY</h3></a>
-    </div>
-    <div class="maincontain_social">
-        <a class="col2 bsky"  href="{{ config('notch64.social.bluesky') }}"></a>
-        <a class="col2 ttv"   href="{{ config('notch64.social.twitch') }}"></a>
-        <a class="col2 fb"    href="{{ config('notch64.social.facebook') }}"></a>
-        <a class="col2 ig"    href="{{ config('notch64.social.instagram') }}"></a>
-        <a class="col2 sc"    href="{{ config('notch64.social.soundcloud') }}"></a>
-        <a class="col2 ttok"  href="{{ config('notch64.social.tiktok') }}"></a>
-        <a class="col2 dsc"   href="{{ config('notch64.social.discord') }}"></a>
-        <a class="col2 yt"    href="{{ config('notch64.social.youtube') }}"></a>
-    </div>
+    <h2 class="col">Retro Gamer. Music Maker. Community Architect.</h2>
+
+    {{--
+        The three link rows are driven by the link_tiles table (Filament:
+        Links > Main Tiles / Community Tiles / Social Icons). Each row's
+        columns are sized by flex, so adding or removing a tile rescales the
+        row on its own. Appearance travels as CSS variables on each anchor;
+        the shared .col / .col2 / .col3 rules in ton.css consume them.
+    --}}
+
+    @if ($mainTiles->isNotEmpty())
+        <div class="maincontain">
+            @foreach ($mainTiles as $tile)
+                <a class="col"
+                   href="{{ $tile->url }}"
+                   style="{{ $tile->styleVars() }}"
+                   @if ($tile->open_in_new_tab) target="_blank" rel="noopener noreferrer" @endif>
+                    <h3 class="title">{{ $tile->title }}</h3>
+                </a>
+            @endforeach
+        </div>
+    @endif
+
+    @if ($communityTiles->isNotEmpty())
+        <div class="maincontain_community">
+            @foreach ($communityTiles as $tile)
+                <a class="col3"
+                   href="{{ $tile->url }}"
+                   style="{{ $tile->styleVars() }}"
+                   @if ($tile->open_in_new_tab) target="_blank" rel="noopener noreferrer" @endif>
+                    <h3 class="title">{{ $tile->title }}</h3>
+                </a>
+            @endforeach
+        </div>
+    @endif
+
+    @if ($socialTiles->isNotEmpty())
+        {{-- --tile-count drives the square icons' width so any number of them stays centred and evenly spaced. --}}
+        <div class="maincontain_social" style="--tile-count: {{ $socialTiles->count() }}">
+            @foreach ($socialTiles as $tile)
+                <a class="col2"
+                   href="{{ $tile->url }}"
+                   style="{{ $tile->styleVars() }}"
+                   @if ($tile->title) aria-label="{{ $tile->title }}" @endif
+                   @if ($tile->open_in_new_tab) target="_blank" rel="noopener noreferrer" @endif></a>
+            @endforeach
+        </div>
+    @endif
+
     @include('partials.audio-player')
 </div>

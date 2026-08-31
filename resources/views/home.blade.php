@@ -16,10 +16,10 @@
     <link rel="canonical" href="https://notch64.com"/>
 
     {{-- Primary SEO --}}
-    <title>Notch64 | Retro Gamer, Music Maker & Community Builder</title>
+    <title>Notch64 | Retro Gamer, Music Maker & Community Architect</title>
     <meta name="description" content="Notch64 is a retro gamer, music producer, streamer, and community builder. Explore gaming, original music, live streams, and join the Vicers community."/>
     <meta name="author" content="Notch64"/>
-    <meta name="keywords" content="Notch64, ItsNotch64, retro gaming, game modding, music producer, Notch64 Music, Twitch streamer, Vice Gamers, Vicers, pixelwave, emulation, community"/>
+    <meta name="keywords" content="Notch64, ItsNotch64, retro gaming, game modding, music producer, Notch64 Music, Twitch streamer, Vice Gamers, Vicers, pixelwave, emulation, community, homebrew games"/>
     <meta name="robots" content="index, follow"/>
 
     {{-- Open Graph (Facebook, Discord, LinkedIn) --}}
@@ -70,7 +70,11 @@
     @endverbatim
 
     {{-- Styles --}}
-    <link href="{{ asset('css/ton.css') }}" rel="stylesheet"/>
+    {{-- Versioned: ton.css is served with a 30-day max-age, and the tile markup
+         and its CSS must upgrade together. Without this, a returning visitor
+         pairs new HTML with a month-old stylesheet and the tiles lose their
+         backgrounds entirely. --}}
+    <link href="{{ asset('css/ton.css') }}?v={{ filemtime(public_path('css/ton.css')) }}" rel="stylesheet"/>
     <link href="{{ asset('css/audio-player.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Open+Sans"/>
     <link rel="stylesheet" href="https://use.typekit.net/fdx4wex.css"/>

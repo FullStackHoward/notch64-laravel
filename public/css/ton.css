@@ -35,13 +35,27 @@ a {
   overflow-x: hidden;
 }
 
+/*
+ * ---- Link rows -------------------------------------------------------------
+ * The three rows are populated from the link_tiles table, so none of them can
+ * assume a fixed number of columns. Each row is a flex container with a gap and
+ * flexible children: the widths that three / one / eight tiles produce today
+ * fall out of these rules, and so does any other count.
+ *
+ * Per-tile appearance (image, colour, size, position) no longer lives in a
+ * class per tile. It arrives as CSS variables set inline on each anchor by
+ * LinkTile::styleVars(), consumed by the shared rule at the bottom of this
+ * block.
+ */
+
 .maincontain {
   display: flex;
-  justify-content: space-between;
+  gap: 2%;
 }
 
 .maincontain_community {
   display: flex;
+  gap: 2%;
   padding-top: 20px;
   padding-bottom: 20px;
   height: 300px;
@@ -50,38 +64,86 @@ a {
 .maincontain_social {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-content: flex-start;
+  /*
+   * Column gap as a percentage so eight icons land on the same 40px pitch the
+   * old space-between produced. Row gap must be a length: a percentage row-gap
+   * resolves against the container's height, which is indefinite here, so it
+   * would collapse to zero the moment the icons wrap.
+   */
+  column-gap: 2.857%;
+  row-gap: 40px;
   padding-top: 20px;
+  /*
+   * Keep this height. .thoughts-divider::before is 140px tall on a 50px
+   * divider, so it hangs 90px up into this row and needs empty #333333 to fade
+   * through. At 300px there is 140px clear below 140px icons. Shrink this (or
+   * raise --social-max much further) and the gradient paints over the icons.
+   */
   height: 300px;
+  /* Icons never exceed this, so a row of three doesn't blow up to a third of
+   * the page each. 140px is what eight icons measure at a 1440px viewport. */
+  --social-max: 140px;
+  --social-cols: var(--tile-count, 8);
 }
 
+/* flex: 1 1 0 with a 2% gap => (100% - 2 x 2%) / 3 = 32%, the old width. */
 .maincontain .col {
-  width: 32%;
+  flex: 1 1 0;
   height: 400px;
   align-items: stretch;
 }
 
-.maincontain_social .col2 {
-  width: 10%;
-  height: 100px;
-  align-items: stretch;
+.maincontain_community .col3 {
+  flex: 1 1 0;
+  height: auto;
 }
 
-.maincontain_community .col3 {
-  width: 100%;
+/*
+ * Square, centred, capped. align-self matters: without it the wrapped flex
+ * line stretches the icons vertically and aspect-ratio never gets a say, which
+ * is the old "icons stretch with the viewport" behaviour this replaces.
+ */
+.maincontain_social .col2 {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: min(
+    calc((100% - (var(--social-cols) - 1) * 2.857%) / var(--social-cols)),
+    var(--social-max)
+  );
   height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.maincontain .col,
+.maincontain_community .col3,
+.maincontain_social .col2 {
+  background-color: var(--tile-color, transparent);
+  background-image: var(--tile-image, none);
+  background-position: var(--tile-pos, center);
+  background-size: var(--tile-size, cover);
+  background-repeat: no-repeat;
+  border: 2px white solid;
 }
 
 @media only screen and (max-width: 40em) {
   .maincontain {
     flex-direction: column;
-    height: 300px;
+    /*
+     * Was a fixed 300px with space-between, which only worked for exactly
+     * three tiles (a fourth overflowed). An explicit gap reproduces the same
+     * 300px total for three and scales honestly for any other count.
+     */
+    height: auto;
+    gap: 34.5px;
     margin: 0 0 10px 0;
   }
 
   .maincontain_community {
     flex-direction: column;
     height: 100%;
+    gap: 34.5px;
     margin: 0 0 10px 0;
   }
 
@@ -90,173 +152,42 @@ a {
     height: 100%;
     margin: 0 0 10px 0;
     padding: 0 0 20px 0;
+    /* Four across on a phone, however many icons there are. */
+    --social-cols: min(var(--tile-count, 8), 4);
+    /* Matches the column gap at this width (2.857% of 350px). */
+    row-gap: 10px;
+  }
+
+  /* Both rows stack, so the children size to their content rather than
+   * flex-growing along the column axis. */
+  .maincontain .col,
+  .maincontain_community .col3 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .maincontain .col,
+  .maincontain_community .col3,
+  .maincontain_social .col2 {
+    background-position: var(--tile-pos-m, var(--tile-pos, center));
+    background-size: var(--tile-size-m, var(--tile-size, cover));
   }
 }
+
 @media only screen and (max-width: 80em) {
   .maincontain .col {
     height: auto !important;
   }
 }
+
 /* Mobile */
 @media only screen and (max-width: 40em) {
-  .maincontain .col {
-    width: 100%;
-  }
   .maincontain h3 {
     font-size: 1.3vh;
-  }
-  .ttv {
-    background-size: 8em !important;
-  }
-  .bsky {
-    background-size: 5em !important;
-  }
-  .ig {
-    background-size: 5em !important;
-  }
-  .sc {
-    background-size: 12em !important;
-  }
-  .fb {
-    background-size: 6em !important;
-  }
-  .yt {
-    background-size: 5em !important;
-  }
-  .ttok {
-    background-size: 5em !important;
-  }
-  .dsc {
-    background-size: 9em !important;
-  }
-  .gaming {
-    background-position: right !important;
-  }
-  .music {
-    background-position: center !important;
-  }
-  .dev {
-    background-position: center !important;
-  }
-  .community {
-    background-size: 70% !important;
-  }
-  .maincontain_social .col2 {
-    width: 50%;
   }
   .maincontain_community h3 {
     font-size: 1.3vh;
   }
-}
-
-/* Item Stylig */
-.gaming {
-  background: #d836eb;
-  background-image: url("../img/gamebg.gif");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 2px white solid;
-}
-
-.music {
-  background: #0000ff;
-  background-image: url("../img/musicbg.gif");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 2px white solid;
-}
-
-.dev {
-  background: #00ff00;
-  background-image: url("../img/devbg.gif");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 2px white solid;
-}
-
-.community {
-  background: #40f6ff;
-  background-image: url("../img/community.gif");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  border: 2px white solid;
-}
-
-.bsky {
-  background: #fff;
-  background-image: url("../img/bsky.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 80% auto;
-  border: 2px white solid;
-}
-
-.ig {
-  background: #d62976;
-  background-image: url("../img/ig.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 50% auto;
-  border: 2px white solid;
-}
-
-.dsc {
-  background: #6b87c8;
-  background-image: url("../img/discord.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  border: 2px white solid;
-}
-
-.fb {
-  background: #009bd1;
-  background-image: url("../img/fb.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 2px white solid;
-}
-
-.yt {
-  background: #ff4040;
-  background-image: url("../img/yt.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 50% auto;
-  border: 2px white solid;
-}
-
-.ttv {
-  background: #dfd0ea;
-  background-image: url("../img/ttv.gif");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  border: 2px white solid;
-}
-
-.ttok {
-  background: #c4c4c4;
-  background-image: url("../img/ttok.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 70%;
-  background-color: #000;
-  border: 2px white solid;
-}
-
-.sc {
-  background-image: url("../img/sc.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 130%;
-  background-color: #d8d3d3;
-  border: 2px white solid;
 }
 
 /* Font Styling */
